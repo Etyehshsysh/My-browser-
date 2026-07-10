@@ -1,55 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 25%; }
-    h1 { color: #4285F4; font-size: 45px; font-weight: bold; margin-bottom: 20px;}
-    input[type="text"] { width: 80%; max-width: 400px; padding: 12px; border-radius: 24px; border: 1px solid #dfe1e5; font-size: 16px; outline: none; }
-    input[type="submit"] { margin-top: 20px; padding: 10px 20px; background-color: #f8f9fa; border: 1px solid #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer; color: #3c4043; }
-  </style>
-</head>
-<body>
-  <h1>Google</h1>
-  <form id="searchForm">
-    <input type="text" id="searchInput" placeholder="Search..." required><br>
-    <input type="submit" value="Google Search">
-  </form>
-
-  <script>
-    document.getElementById('searchForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // ပုံမှန် Google ရှာဖွေမှုကို ရပ်တန့်လိုက်သည်
-      
-      // အောက်က "..." နေရာမှာ သင် Force လုပ်ချင်တဲ့ လင့်ခ်ကို ထည့်ပါ။ 
-      // ဥပမာ - "https://en.wikipedia.org/wiki/Mentalism"
-      var forceLink = "https://en.wikipedia.org/wiki/ryan reynolds"; 
-      
-      window.location.href = forceLink;
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
     <title>Google</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        h1 { color: #4285F4; font-size: 45px; }
+        input[type="text"] { width: 80%; max-width: 400px; padding: 10px; }
+        input[type="submit"] { margin-top: 20px; padding: 10px 20px; }
+    </style>
 </head>
 <body>
-    <!-- ဒီနေရာမှာ သင်အရင်ရေးထားတဲ့ Google Search ပုံစံ Code တွေ ရှိမယ် -->
+    <h1>Google</h1>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <br>
+        <input type="submit" value="Google Search">
+    </form>
 
     <script>
-        // ၁။ ပရိသတ် Back နှိပ်ရင် နောက်မဆုတ်နိုင်အောင် ထိန်းချုပ်ခြင်း
+        // Back ခလုတ်ကို ထိန်းချုပ်ခြင်း
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
 
-        // ၂။ ပရိသတ် ရှာလိုက်ရင် Force လုပ်ထားတဲ့ Page ဆီကို Redirect လုပ်ခြင်း
+        // Search လုပ်ရင် Ryan Reynolds ဆီသွားခြင်း
         document.getElementById('searchForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // ဒီနေရာမှာ သင် Force လုပ်ချင်တဲ့ Link ကို ထည့်ပါ
-            window.location.href = "https://en.wikipedia.org/wiki/ryan reynolds";
+            window.location.href = "https://en.wikipedia.org/wiki/Ryan_Reynolds";
         });
     </script>
 </body>
