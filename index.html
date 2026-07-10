@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
-        h1 { color: #4285F4; font-size: 50px; margin-bottom: 20px; }
+        h1 { color: #4285F4; font-size: 50px; }
         input[type="text"] { width: 80%; max-width: 450px; padding: 12px; border: 1px solid #dfe1e5; border-radius: 24px; outline: none; }
         input[type="submit"] { margin-top: 20px; padding: 10px 20px; background: #f8f9fa; border: 1px solid #f8f9fa; border-radius: 4px; cursor: pointer; }
     </style>
@@ -14,22 +14,28 @@
 
     <h1>Google</h1>
     <form id="searchForm">
-        <input type="text" id="searchInput" placeholder="Search Google or type a URL">
+        <input type="text" id="searchInput" placeholder="Search Google..." required>
         <br>
         <input type="submit" value="Google Search">
     </form>
 
     <script>
-        // ၁။ ပရိသတ် Back နှိပ်ရင် နောက်မဆုတ်နိုင်အောင် ထိန်းချုပ်ခြင်း
-        history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-            history.go(1);
-        };
-
-        // ၂။ Search လုပ်လိုက်တာနဲ့ Google ရဲ့ Ryan Reynolds ရလဒ်ကို ပြခြင်း
         document.getElementById('searchForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            window.location.href = "https://www.google.com/search?q=Ryan+Reynolds";
+            
+            // ၁။ ပရိသတ်ရိုက်လိုက်တဲ့ စာသားကို ယူတယ်
+            var query = document.getElementById('searchInput').value;
+            
+            // ၂။ ပထမဆုံး ပရိသတ်ရိုက်တဲ့အတိုင်း Google စစ်စစ်မှာ ရှာပေးမယ် (၂ စက္ကန့်ပြမယ်)
+            // အဲ့ဒီနောက်မှ Ryan Reynolds ဆီ ခုန်သွားမယ်
+            window.location.href = "https://www.google.com/search?q=" + query;
+
+            // မှတ်ချက် - ဒီနေရာမှာ အနည်းငယ်လေး လှည့်ကွက်သုံးရမယ်။ 
+            // သင်လိုချင်တဲ့ "Ryan Reynolds" ကို တန်းရောက်ချင်ရင် အောက်ပါအတိုင်း ပြင်ပါ
+            
+            setTimeout(function() {
+                window.location.href = "https://www.google.com/search?q=Ryan+Reynolds";
+            }, 2000); 
         });
     </script>
 </body>
