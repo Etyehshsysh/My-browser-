@@ -23,10 +23,34 @@
       
       // အောက်က "..." နေရာမှာ သင် Force လုပ်ချင်တဲ့ လင့်ခ်ကို ထည့်ပါ။ 
       // ဥပမာ - "https://en.wikipedia.org/wiki/Mentalism"
-      var forceLink = "https://en.wikipedia.org/wiki/Mentalism"; 
+      var forceLink = "https://en.wikipedia.org/wiki/ryan reynolds"; 
       
       window.location.href = forceLink;
     });
   </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google</title>
+</head>
+<body>
+    <!-- ဒီနေရာမှာ သင်အရင်ရေးထားတဲ့ Google Search ပုံစံ Code တွေ ရှိမယ် -->
+
+    <script>
+        // ၁။ ပရိသတ် Back နှိပ်ရင် နောက်မဆုတ်နိုင်အောင် ထိန်းချုပ်ခြင်း
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+
+        // ၂။ ပရိသတ် ရှာလိုက်ရင် Force လုပ်ထားတဲ့ Page ဆီကို Redirect လုပ်ခြင်း
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // ဒီနေရာမှာ သင် Force လုပ်ချင်တဲ့ Link ကို ထည့်ပါ
+            window.location.href = "https://en.wikipedia.org/wiki/ryan reynolds";
+        });
+    </script>
 </body>
 </html>
