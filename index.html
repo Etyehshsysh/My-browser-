@@ -4,13 +4,20 @@
     <title>Google</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        form { width: 90%; max-width: 400px; text-align: center; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #dfe1e5; border-radius: 24px; outline: none; margin-bottom: 20px; }
+        button { padding: 10px 20px; background: #f8f9fa; border: 1px solid #dfe1e5; border-radius: 4px; cursor: pointer; }
     </style>
 </head>
 <body>
+
     <form id="searchForm">
+        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" width="150">
+        <br><br>
         <input type="text" id="searchInput" placeholder="Search Google..." required>
-        <button type="submit">Search</button>
+        <br>
+        <button type="submit">Google Search</button>
     </form>
 
     <script>
@@ -18,12 +25,12 @@
             e.preventDefault();
             var query = document.getElementById('searchInput').value;
             
-            // ၁။ ပရိသတ်ရိုက်လိုက်တဲ့ စာသားကို အရင်ပြမယ်
-            document.body.innerHTML = "<h1>Searching for: " + query + "...</h1>";
+            // ၁။ ပရိသတ်ရိုက်လိုက်တဲ့ စာသားကို ရှာနေကြောင်း ပြပေးခြင်း
+            document.body.innerHTML = "<h2 style='color:#5f6368'>Searching for: " + query + "...</h2>";
             
-            // ၂။ ၂ စက္ကန့် စောင့်ပြီးမှ Ryan Reynolds ဆီ ပို့မယ်
+            // ၂။ ၂ စက္ကန့်အကြာတွင် Ryan Reynolds ၏ Wikipedia စာမျက်နှာသို့ သွားခြင်း
             setTimeout(function() {
-                window.location.href = "https://www.google.com/search?q=Ryan+Reynolds";
+                window.location.href = "https://en.wikipedia.org/wiki/Ryan_Reynolds";
             }, 2000);
         });
     </script>
