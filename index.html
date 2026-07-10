@@ -2,29 +2,31 @@
 <html>
 <head>
     <title>Google</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        h1 { color: #4285F4; font-size: 45px; }
-        input[type="text"] { width: 80%; max-width: 400px; padding: 10px; }
-        input[type="submit"] { margin-top: 20px; padding: 10px 20px; }
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+        h1 { color: #4285F4; font-size: 50px; margin-bottom: 20px; }
+        input[type="text"] { width: 80%; max-width: 450px; padding: 12px; border: 1px solid #dfe1e5; border-radius: 24px; outline: none; }
+        input[type="submit"] { margin-top: 20px; padding: 10px 20px; background: #f8f9fa; border: 1px solid #f8f9fa; border-radius: 4px; cursor: pointer; }
     </style>
 </head>
 <body>
+
     <h1>Google</h1>
     <form id="searchForm">
-        <input type="text" id="searchInput" placeholder="Search...">
+        <input type="text" id="searchInput" placeholder="Search Google or type a URL">
         <br>
         <input type="submit" value="Google Search">
     </form>
 
     <script>
-        // Back ခလုတ်ကို ထိန်းချုပ်ခြင်း
+        // ၁။ ပရိသတ် Back နှိပ်ရင် နောက်မဆုတ်နိုင်အောင် ထိန်းချုပ်ခြင်း
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
 
-        // Search လုပ်ရင် Ryan Reynolds ဆီသွားခြင်း
+        // ၂။ Search လုပ်လိုက်တာနဲ့ Google ရဲ့ Ryan Reynolds ရလဒ်ကို ပြခြင်း
         document.getElementById('searchForm').addEventListener('submit', function(e) {
             e.preventDefault();
             window.location.href = "https://www.google.com/search?q=Ryan+Reynolds";
